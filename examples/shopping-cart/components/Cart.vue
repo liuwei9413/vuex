@@ -1,5 +1,6 @@
 <template>
   <div class="cart">
+    {{nowYear}}
     <h2>Your Cart</h2>
     <p v-show="!products.length"><i>Please add some products to cart.</i></p>
     <ul>
@@ -13,14 +14,15 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import { mapGetters } from 'vuex'
 
 export default {
   computed: {
     ...mapGetters({
       products: 'cartProducts',
-      checkoutStatus: 'checkoutStatus'
+      checkoutStatus: 'checkoutStatus',
+      nowYear: 'allNowYear'
     }),
     total () {
       return this.products.reduce((total, p) => {
@@ -32,6 +34,14 @@ export default {
     checkout (products) {
       this.$store.dispatch('checkout', products)
     }
+  },
+  watch: {
+    nowYear: function(newVal, oldVal) {
+      console.log(newVal + '-' + oldVal);
+    }
+  },
+  created() {
+    console.log('aa:'+this.nowYear);
   }
 }
 </script>

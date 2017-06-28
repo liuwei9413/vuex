@@ -10,7 +10,8 @@ const state = {
 
 // getters
 const getters = {
-  checkoutStatus: state => state.checkoutStatus
+  checkoutStatus: state => state.checkoutStatus,
+  //nowYear: state => state.nowYear
 }
 
 // actions

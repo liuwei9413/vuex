@@ -8,3 +8,7 @@ export const cartProducts = state => {
     }
   })
 }
+
+export const allNowYear = state => {
+  return state.schoolyears.nowYear;
+}
